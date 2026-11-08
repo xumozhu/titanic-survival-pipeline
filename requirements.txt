@@ -1,0 +1,4 @@
+# Python dependencies for Titanic data processing and modeling.
+pandas==3.1.1
+numpy==2.4.6
+scikit-learn==1.9.1
