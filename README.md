@@ -56,6 +56,7 @@ docker run --rm \
 
 The R pipeline generates `src/data/titanic_submission_r.csv`.
 
+
 ## Model Results
 
 Both implementations use seven predictors: Pclass, Sex, Age, SibSp, Parch, Fare, and Embarked.
@@ -64,11 +65,20 @@ Both implementations use seven predictors: Pclass, Sex, Age, SibSp, Parch, Fare,
 |---|---|---|
 | Training observations | 712 | 712 |
 | Validation observations | 179 | 179 |
+| Training accuracy | 80.76% | 80.34% |
 | Validation accuracy | 80.45% | 80.45% |
 | Correct validation predictions | 144 | 144 |
 | Kaggle test predictions | 418 | 418 |
+| Predicted test survivors | 152 | 152 |
+| Predicted test non-survivors | 266 | 266 |
 
-The implementations use different random sampling procedures and model defaults, so matching accuracy does not necessarily imply identical predictions.
+The implementations use different random sampling procedures and model defaults, so matching validation accuracy does not necessarily imply identical predictions.
+
+### Test Set Accuracy Limitation
+
+The official Kaggle Titanic test dataset does not contain the actual `Survived` labels. Therefore, test set accuracy cannot be calculated directly from `test.csv`.
+
+Instead, both implementations evaluate model performance using a held-out validation set with known survival outcomes. Predictions for all 418 Kaggle test passengers are generated and saved as separate CSV files.
 
 ## Reproducibility
 
