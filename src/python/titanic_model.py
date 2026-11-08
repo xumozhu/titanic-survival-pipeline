@@ -238,6 +238,19 @@ model.fit(X_train_final, y_train)
 print("\nLogistic Regression model trained successfully!")
 
 # =============================================================================
+# STEP 10B: EVALUATE TRAINING ACCURACY
+# =============================================================================
+
+# Predict survival outcomes using the training dataset.
+train_predictions = model.predict(X_train_final)
+
+# Calculate the model's accuracy on the training data.
+training_accuracy = accuracy_score(y_train, train_predictions)
+
+# Display the training accuracy as a percentage.
+print(f"\nTraining Accuracy: {training_accuracy:.2%}")
+
+# =============================================================================
 # STEP 11: MAKE VALIDATION PREDICTIONS
 # =============================================================================
 

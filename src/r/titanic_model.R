@@ -163,6 +163,26 @@ cat("\nR Logistic Regression model trained successfully!\n")
 cat("\nModel Coefficients:\n")
 print(coef(r_model))
 
+# ==== STEP 6B: EVALUATE TRAINING ACCURACY ====
+
+# Predict survival probabilities for passengers in the training dataset.
+train_probabilities <- predict(
+  r_model,
+  newdata = train_model_data,
+  type = "response"
+)
+
+# Convert the predicted probabilities into binary survival outcomes.
+train_predictions <- ifelse(train_probabilities >= 0.5, 1, 0)
+
+# Calculate the accuracy using the actual training labels.
+training_accuracy <- mean(
+  train_predictions == train_model_data$Survived
+)
+
+# Display the training accuracy as a percentage.
+cat(sprintf("\nR Training Accuracy: %.2f%%\n", training_accuracy * 100))
+
 # ==== STEP 7: PREDICT AND EVALUATE VALIDATION ACCURACY ====
 
 # Predict survival probabilities for passengers in the validation set.
