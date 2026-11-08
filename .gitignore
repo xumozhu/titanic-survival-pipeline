@@ -1,0 +1,13 @@
+# Ignore the local Titanic dataset and generated CSV files.
+src/data/*.csv
+
+# Ignore Python cache files.
+__pycache__/
+*.pyc
+
+# Ignore local Python virtual environments.
+.venv/
+venv/
+
+# Ignore macOS system metadata.
+.DS_Store

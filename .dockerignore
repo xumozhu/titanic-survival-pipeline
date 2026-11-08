@@ -1,0 +1,18 @@
+# Exclude Git metadata from the Docker build context.
+.git/
+.gitignore
+
+# Exclude Titanic datasets and generated CSV files.
+src/data/
+
+# Exclude local Python environments and cache files.
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Exclude operating system metadata.
+.DS_Store
+
+# Exclude temporary editor files.
+.vscode/
